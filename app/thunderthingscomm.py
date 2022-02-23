@@ -13,15 +13,12 @@ import struct
 import subprocess
 import urllib.parse
 
-
-
 # Python 3.x version
 # Read a message from stdin and decode it.
 def getMessage(debug=False):
     if debug:
         # just take a string from the stidin
         message = sys.stdin.read()
-        print(message)
     else:
         rawLength = sys.stdin.buffer.read(4)
         if len(rawLength) == 0:
@@ -44,21 +41,27 @@ def sendMessage(encodedMessage):
     sys.stdout.buffer.write(encodedMessage['content'])
     sys.stdout.buffer.flush()
 
-def createTask(subj, msgId, notes):
+def createTask(d):
+    str = ""
+    for k in d:
+        if str:
+            str += ","
+        str = str + k + ":\""+d[k]+"\""
+        
     s = '''\
-set theURL to "{url}"
-set theMessage to "[url=" & theURL & "]Email[/url]"
 tell application id "com.culturedcode.ThingsMac"
-    show quick entry panel with properties {{name:"{subj}", notes:theMessage & "\n" }}
+    show quick entry panel with properties {{ {propmap} }}
 end tell
 '''
-    s = s.format(subj=subj, url="mid://"+urllib.parse.quote("<"+str(msgId)+">"))
-
+    s = s.format(propmap = str)
+    print("About to run " + s)
 
     process = subprocess.Popen(["osascript"], stdin=subprocess.PIPE)
     process.communicate(s.encode('utf-8'))
-        
-while True:
-    msg = getMessage()
-    createTask(msg['subj'], msg['msgId'], msg['notes'])
+
+def run():
+    while True:
+        createTask(getMessage())
     
+if __name__ == '__main__':
+    run()

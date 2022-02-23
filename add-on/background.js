@@ -50,9 +50,20 @@ browser.commands.onCommand.addListener((command) => {  if (command === "add_to_t
  * Add an item to Things
  */
 function addToThings(message) {
-    let sending = browser.runtime.sendNativeMessage(
+    let notes = "[url=msg://" + message.headerMessageId + "]Email[/url]"
+    browser.runtime.sendNativeMessage(
 	"thunderthings",
-	{ subj: message.subject, msgId : message.headerMessageId });
+	{ name: message.subject, notes: notes },
+	function(response) {
+	    if (chrome.runtime.lastError) {
+		console.error("ERROR: " + chrome.runtime.lastError.message);
+		window.alert("ThunderThings was unable to comunicate with Things to create the item.\n"+
+			     "Please make sure that the ThunderThings application is installed and has been run. " +
+			     "See https://github.com/snchong/ThunderThings for more details.");
+	    } else {
+		console.log("Messaging host sais: ", response);
+	    }
+	});
     
 }
 

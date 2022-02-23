@@ -1,7 +1,0 @@
-{
-    "name": "thunderthings",
-    "description": "Script to provide a native messaging interface with Things",
-    "path": "/Library/Application Support/Mozilla/NativeMessagingHosts/thunderthings.py",
-    "type": "stdio",
-    "allowed_extensions": [ "thunderthings@gajong.com" ]
-}
