@@ -18,3 +18,6 @@ tt.icns: tt_1024_x_1024.png
 	rm -R tt.iconset
 
 
+clean:
+	rm -rf tt.iconset build dist __pycache__ 
+
