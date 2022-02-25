@@ -57,11 +57,11 @@ function addToThings(message) {
 	function(response) {
 	    if (chrome.runtime.lastError) {
 		console.error("ERROR: " + chrome.runtime.lastError.message);
-		window.alert("ThunderThings was unable to comunicate with Things to create the item.\n"+
+		console.error("ThunderThings was unable to comunicate with Things to create the item.\n"+
 			     "Please make sure that the ThunderThings application is installed and has been run. " +
 			     "See https://github.com/snchong/ThunderThings for more details.");
 	    } else {
-		console.log("Messaging host sais: ", response);
+		console.log("Messaging host says: ", response);
 	    }
 	});
     
