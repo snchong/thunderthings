@@ -54,7 +54,6 @@ tell application id "com.culturedcode.ThingsMac"
 end tell
 '''
     s = s.format(propmap = str)
-    print("About to run " + s)
 
     process = subprocess.Popen(["osascript"], stdin=subprocess.PIPE)
     process.communicate(s.encode('utf-8'))
