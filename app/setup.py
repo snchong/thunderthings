@@ -9,13 +9,12 @@ from setuptools import setup
 
 APP = ['ThunderThings.py']
 DATA_FILES = []
-OPTIONS = dict(
-    plist=dict(
-        LSEnvironment=dict(
-            APPLAUNCHED='Y',
-        )
-    )
-)
+OPTIONS = {
+    'iconfile':'tt.icns',
+    'plist': {
+        'LSEnvironment' : {'APPLAUNCHED':'Y'}
+    }
+}
     
 setup(
     app=APP,
