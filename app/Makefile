@@ -21,3 +21,4 @@ tt.icns: tt_1024_x_1024.png
 clean:
 	rm -rf tt.iconset build dist __pycache__ 
 
+.PHONY: clean
