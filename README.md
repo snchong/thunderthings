@@ -15,7 +15,7 @@ You must install two components.
 
 1. ThunderThings add-on. In Thunderbird, go to Tools > Add-ons and Themes and search for "ThunderThings". 
 
-2. ThunderThings macOS application. Download the zip file and open it. Move the ThunderThings application to the `/Applications` directory on your computer and run it.
+2. ThunderThings macOS application. Download the zip file from https://github.com/snchong/thunderthings/releases/latest and open it. Move the ThunderThings application to the `/Applications` directory on your computer and run it.
 
   When the application is run, it installs files that allows the Thunderbird add-on to communicate with the ThunderThings app, which is what opens the Things' Quick Entry interface. In more detail, it installs a manifest file as required by [Mozilla's native messaging](https://wiki.mozilla.org/WebExtensions/Native_Messaging) in the directory `~/Library/Application Support/Mozilla/NativeMessagingHosts/` and in the directory `/Library/Application Support/Mozilla/NativeMessagingHosts/`. (Installation in the latter directory is required to get it to work on some machines, as manifest file in the user directory does not seem to be used.)
 
