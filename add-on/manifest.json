@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "ThunderThings",
     "description": "Integration between Thunderbird and Cultured Code's Things application.",
-    "version": "1.0",
+    "version": "1.1",
     "author": "Stephen Chong",
     "applications": {
         "gecko": {
