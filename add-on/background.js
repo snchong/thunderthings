@@ -50,7 +50,7 @@ browser.commands.onCommand.addListener((command) => {  if (command === "add_to_t
  * Add an item to Things
  */
 function addToThings(message) {
-    let notes = "[url=msg://" + message.headerMessageId + "]Email[/url]"
+    let notes = "[url=mid:" + message.headerMessageId + "]Email[/url]"
     browser.runtime.sendNativeMessage(
 	"thunderthings",
 	{ name: message.subject, notes: notes },
