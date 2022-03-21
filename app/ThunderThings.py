@@ -3,6 +3,7 @@
 
 import os
 import sys
+import traceback
 from os.path import expanduser
 import thunderthingscomm
 
@@ -59,8 +60,9 @@ def installFiles():
     
     js = js.format(commloc=loc)
 
-    def checkFile(filename, str):
+    def checkFile(dir, filename, str):
         try:
+            filename = dir+filename
             if os.path.exists(filename):
                 # File exists, see if it is correct
                 f = open(filename, "r")
@@ -73,9 +75,10 @@ def installFiles():
             pass
         return False
     
-    def writeToFile(filename, str):
+    def writeToFile(dir, filename, str):
         try:
-            f = open(filename, "w+")
+            os.makedirs(dir, exist_ok=True)
+            f = open(dir+filename, "w+")
             f.write(str)
             f.close()
             return True
@@ -87,19 +90,20 @@ def installFiles():
         
         
 
-    userfile = expanduser("~")+"/Library/Application Support/Mozilla/NativeMessagingHosts/thunderthings.json"
-    sysfile = "/Library/Application Support/Mozilla/NativeMessagingHosts/thunderthings.json"
+    userdir = expanduser("~")+"/Library/Application Support/Mozilla/NativeMessagingHosts/"
+    sysdir = "/Library/Application Support/Mozilla/NativeMessagingHosts/"
+    filename = "thunderthings.json"
 
 
-    if checkFile(userfile, js) and checkFile(sysfile, js):
+    if checkFile(userdir, filename, js) and checkFile(sysdir, filename, js):
         message(already_install_msg)
         sys.exit(0)
         
-    if not writeToFile(userfile, js):
+    if not writeToFile(userdir, filename, js):
         message("Could not write to file " + userfile +". Unable to install.")
         sys.exit(1)
         
-    if writeToFile(sysfile, js):
+    if writeToFile(sysdir, filename, js):
         if not (sys.argv and "--sudo" in sys.argv):
             message(install_success_msg)
         sys.exit(0)
@@ -136,7 +140,13 @@ def message(msg, gui=None):
 # If we are launched from the app or given the command line arg "--install"
 # then try to install the files
 if launched_from_app or (sys.argv and "--install" in sys.argv):
-    installFiles()
+    try:
+        installFiles()
+    except Exception as e:
+        message("Encountered the following error when executing. "+
+                "For help, please copy this message and email to thunderthings@gajong.com.\n\n"+
+                traceback.format_exc())
+
     sys.exit()
 
 
