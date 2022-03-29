@@ -2,9 +2,9 @@
 
 Integration between Thunderbird and Cultured Code's Things on macOS.
 
-This Thunderbird add-on provides a mechanism to create a Things to-do that contains a link to an email message. When the link in the to-do is clicked, Thunderbird will open and display the message (requires Thunderbird version 98 or later for message links to work on macOS).
+This Thunderbird add-on provides a mechanism to create a Things to-do that contains a link to an email message. When the link in the to-do is clicked, Thunderbird will open and display the message (requires Thunderbird version 91.8 or later for message links to work on macOS).
 
-ThunderThings consists of two components: a Thunderbird add-on and a macOS application that must be installed on the system and run once (to install some files). The Thunderbird extension communicates with the app to create to-dos using Things' Quick Entry interface.
+ThunderThings consists of two components: a Thunderbird add-on and a macOS application that must be installed on the system and run once (to install some files). The Thunderbird add-on communicates with the app to create to-dos using [Things' Quick Entry](https://culturedcode.com/things/support/articles/2249437/) interface.
 
 Please note that I have no affiliation or connection to Cultured Code other than being a user of their software.
 
