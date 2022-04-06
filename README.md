@@ -24,9 +24,15 @@ You must install two components.
 
 When a message is selected (or window/tab that shows a single message is active), you can activate ThunderThings by 
 
-1. clicking the "Add to Things..." button in the toolbar; 
-2. selecting "Add to Things..." in the context menu; or 
+1. clicking the "Add to Things" button in the toolbar; 
+2. selecting "Add to Things" in the context menu; or 
 3. pressing ctrl-shift-A.
+
+
+You can also put link to a message on the clipboard by
+
+1. selecting "Copy as Link" in the context menu; or 
+3. pressing alt-command-C.
 
 There are currently no configurable options.
 

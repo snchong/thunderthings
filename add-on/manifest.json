@@ -26,18 +26,26 @@
         "default_icon": "images/Things-icon-32.png"
     },
     "commands": {
-	"add_to_things_action": {
+	"add_to_things_command": {
 	    "suggested_key": {
 		"default": "Ctrl+Shift+A",
 		"mac": "MacCtrl+Shift+A"
 	    },
 	    "description": "Add to Things"
+	},
+	"copy_msg_link_command": {
+	    "suggested_key": {
+		"default": "Alt+Command+C",
+		"mac": "Alt+Command+C"
+	    },
+	    "description": "Copy as Link"
 	}
     }, 
     "permissions": [
 	"menus",
 	"messagesRead",
-	"nativeMessaging"
+	"nativeMessaging",
+	"clipboardWrite"
     ],
     "icons": {
         "64": "images/Things-icon-64.png",
