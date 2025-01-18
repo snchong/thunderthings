@@ -100,7 +100,7 @@ def installFiles():
         sys.exit(0)
         
     if not writeToFile(userdir, filename, js):
-        message("Could not write to file " + userfile +". Unable to install.")
+        message("Could not write to file " + userdir +"/"+filename +". Unable to install.")
         sys.exit(1)
         
     if writeToFile(sysdir, filename, js):
