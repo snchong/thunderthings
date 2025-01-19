@@ -19,6 +19,8 @@ You must install two components.
   
     When the application is run, it installs files that allows the Thunderbird add-on to communicate with the ThunderThings app, which is what opens the Things' Quick Entry interface. In more detail, it installs a manifest file as required by [Mozilla's native messaging](https://wiki.mozilla.org/WebExtensions/Native_Messaging) in the directory `~/Library/Application Support/Mozilla/NativeMessagingHosts/` and in the directory `/Library/Application Support/Mozilla/NativeMessagingHosts/`. (Installation in the latter directory is required to get it to work on some machines, as the manifest file in the user directory does not seem to be used.)
 
+    **Note:** Some users have reported that macOS is quarantining `ThunderThings.app`, which prevents the user from running the application. If you encounter this, you will need to clear the quarantine bit by opening the terminal and executing `xattr -c /Applications/ThunderThings.app`, which clears the quarantine bit. If you are concerned about the security of the app, you can download the code from this repo, inspect it (it's pretty straightforward), and build it yourself, by running `make` in the `app` directory.
+
 
 ## Usage
 
